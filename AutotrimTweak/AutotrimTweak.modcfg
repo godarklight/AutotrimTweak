@@ -1,0 +1,15 @@
+ModCFG
+{
+    title = AutotrimTweak
+    author = godarklight
+    modVersion = 0.1.0
+    imgPath = preview.png
+    requiresGameVersion = 0.101.2
+    Plugin
+    {
+        name = IUnderstand
+        description = For the extra lazy!
+        asmpath = Addons\AutotrimTweak\AutotrimTweak.dll
+        order = 100
+    }
+} 
