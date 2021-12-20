@@ -1,7 +1,7 @@
 ﻿using System;
 using BalsaCore;
 using UnityEngine;
-using FSControl;
+//using FSControl;
 
 namespace AutotrimTweak
 {
@@ -9,27 +9,17 @@ namespace AutotrimTweak
     public class Loader
     {
         //Game start
-        [BalsaAddonInit]
+        [BalsaAddonInit(invokeTime = AddonInvokeTime.Flight)]
         public static void BalsaInit()
         {
-            GameEvents.Vehicles.OnVehicleSpawned.AddListener(OnVehicleSpawned);
+            GameObject go = new GameObject();
+            go.AddComponent<AutotrimMain>();
         }
 
         //Game exit
         [BalsaAddonFinalize]
         public static void BalsaFinalize()
         {
-        }
-
-        private static void OnVehicleSpawned(Vehicle v)
-        {
-            if (!v.IsLocalPlayerVehicle)
-            {
-                return;
-            }
-            FBWHostBase host = v.Autotrim.host;
-            IFlyByWire autotrimTweak = new AutotrimTweakFBW();
-            host.RegisterFBWModule(autotrimTweak);
         }
     }
 }
